@@ -14,6 +14,10 @@ class SeatFinderTest(unittest.TestCase):
         seats = finder.find_seats(2)
         assert seats == {"C6", "C7"}
 
+    def test_finds_separate_seats_when_adjacent_not_available(self):
+        finder = SeatFinder(available_seats={"A6", "B6", "C7"})
+        seats = finder.find_seats(2)
+        assert seats == {"B6", "A6"}
     
 
     
