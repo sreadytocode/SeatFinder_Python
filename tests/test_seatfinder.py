@@ -18,6 +18,11 @@ class SeatFinderTest(unittest.TestCase):
         finder = SeatFinder(available_seats={"A6", "B6", "C7"})
         seats = finder.find_seats(2)
         assert seats == {"B6", "A6"}
+
+    def test_find_seats_fails_when_not_enough_available(self):
+        finder = SeatFinder(available_seats={"A6", "B6", "C7"})
+        seats = finder.find_seats(5)
+        assert seats == {}
     
 
     
